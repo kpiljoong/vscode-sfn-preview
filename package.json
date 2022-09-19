@@ -2,18 +2,23 @@
   "name": "sfn-preview",
   "displayName": "Step Functions Preview",
   "description": "Preview for AWS Step Functions",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "author": "kpiljoong <kpiljoong@gmail.com>",
   "icon": "images/icon.png",
   "homepage": "https://github.com/kpiljoong/vscode-sfn-preview#readme",
+  "publisher": "qkk",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kpiljoong/vscode-sfn-preview"
+  },
   "engines": {
     "npm": "~8.X",
     "node": "~16.X",
     "vscode": "^1.71.0"
   },
   "categories": [
-    "Other"
+    "Visualization"
   ],
   "keywords": [
     "aws",
