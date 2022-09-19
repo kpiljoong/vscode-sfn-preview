@@ -1,0 +1,139 @@
+{
+  "name": "sfn-preview",
+  "displayName": "Step Functions Preview",
+  "description": "Preview for AWS Step Functions",
+  "version": "0.0.1",
+  "author": "kpiljoong <kpiljoong@gmail.com>",
+  "icon": "images/icon.png",
+  "homepage": "https://github.com/kpiljoong/vscode-sfn-preview#readme",
+  "license": "MIT",
+  "engines": {
+    "npm": "~8.X",
+    "node": "~16.X",
+    "vscode": "^1.71.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "aws",
+    "sfn",
+    "asl",
+    "step functions",
+    "preview",
+    "visualizer"
+  ],
+  "activationEvents": [
+    "onCommand:sfn.preview.openToSide",
+    "onCommand:sfn.preview.zoomIn",
+    "onCommand:sfn.preview.zoomOut",
+    "onCommand:sfn.preview.toggleRaw"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sfn.preview.openToSide",
+        "title": "Open Sfn Preview to the Side",
+        "category": "Sfn Preview"
+      },
+      {
+        "command": "sfn.preview.toggleRaw",
+        "title": "Toggle raw content",
+        "category": "Sfn Preview",
+        "icon": {
+          "light": "./images/light/eye.svg",
+          "dark": "./images/dark/eye.svg"
+        }
+      },
+      {
+        "command": "sfn.preview.zoomOut",
+        "title": "Zoom out the preview",
+        "category": "Sfn Preview",
+        "icon": {
+          "light": "./images/light/zoom-out.svg",
+          "dark": "./images/dark/zoom-out.svg"
+        }
+      },
+      {
+        "command": "sfn.preview.zoomIn",
+        "title": "Zoom in the preview",
+        "category": "Sfn Preview",
+        "icon": {
+          "light": "./images/light/zoom-in.svg",
+          "dark": "./images/dark/zoom-in.svg"
+        }
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceLangId == sfn || resourceLangId == asl-yaml",
+          "command": "sfn.preview.openToSide",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "when": "sfnPreviewActive",
+          "command": "sfn.preview.toggleRaw",
+          "group": "navigation@1"
+        },
+        {
+          "when": "sfnPreviewActive",
+          "command": "sfn.preview.zoomOut",
+          "group": "navigation@2"
+        },
+        {
+          "when": "sfnPreviewActive",
+          "command": "sfn.preview.zoomIn",
+          "group": "navigation@3"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "when": "resourceLangId == sfn || resourceLangId == asl-yaml",
+          "command": "sfn.preview.openToSide",
+          "group": "navigation"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "id": "sfn",
+        "aliases": [
+          "sfn"
+        ],
+        "extensions": [
+          ".yaml",
+          ".yml",
+          "*.yaml",
+          "*.yml"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/js-yaml": "^4.0.5",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.71.0",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "@vscode/test-electron": "^2.1.5",
+    "eslint": "^8.20.0",
+    "glob": "^8.0.3",
+    "js-yaml": "^4.1.0",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4"
+  }
+}
