@@ -88,7 +88,6 @@ export class PanelView extends Disposable {
     let content = undefined;
     content = this.parser.parse(text);
     
-    console.log('cotent', content);
     if (content === undefined) {
       throw new Error(`Not a valid asl doc`);
     } else {

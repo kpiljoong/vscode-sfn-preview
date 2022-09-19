@@ -2,7 +2,7 @@
   "name": "sfn-preview",
   "displayName": "Step Functions Preview",
   "description": "Preview for AWS Step Functions",
-  "version": "0.0.3",
+  "version": "0.0.9",
   "author": "kpiljoong <kpiljoong@gmail.com>",
   "icon": "images/icon.png",
   "homepage": "https://github.com/kpiljoong/vscode-sfn-preview#readme",
@@ -13,19 +13,23 @@
     "url": "https://github.com/kpiljoong/vscode-sfn-preview"
   },
   "engines": {
-    "npm": "~8.X",
-    "node": "~16.X",
     "vscode": "^1.71.0"
   },
   "categories": [
     "Visualization"
   ],
   "keywords": [
-    "aws",
-    "sfn",
+    "AWS",
+    "Amazon States Language",
+    "Amazon States Language (YAML)",
+    "AWS Step Functions",
     "asl",
-    "step functions",
+    "asl-yaml",
+    "sfn",
     "preview",
+    "yaml",
+    "viewer",
+    "visualization",
     "visualizer"
   ],
   "activationEvents": [
@@ -120,6 +124,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
+    "package": "vsce package",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
@@ -137,8 +142,10 @@
     "@vscode/test-electron": "^2.1.5",
     "eslint": "^8.20.0",
     "glob": "^8.0.3",
-    "js-yaml": "^4.1.0",
     "mocha": "^10.0.0",
     "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
   }
 }
